@@ -3,6 +3,10 @@
 """
 import numpy as np
 from IPython.display import display, Latex
+import warnings
+
+#suppress warnings
+supress = lambda msg: warnings.filterwarnings(msg)
 
 
 def load_data(filename):
@@ -24,10 +28,6 @@ def save_data(data, filename):
     """
     np.savetxt(filename, data, delimiter=",", fmt="%.2f")
     
-    
-def around2(number):
-    return np.around(number, 2)
-
 
 def print_pretty_sample(X):
     print("Realización de la muestra aleatoria.")
@@ -37,4 +37,4 @@ def print_pretty_sample(X):
     
     for i in range(1, n + 1):
         display(Latex("$x_{%s}$"%str(i) + f" = {X[i-1]}"))
-
+        
